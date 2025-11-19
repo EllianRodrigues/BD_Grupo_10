@@ -1,4 +1,4 @@
- # Bando de Dados - Grupo 10
+ # Banco de Dados - Grupo 10
 
 ## Pré-requisitos
 - Instalar e executar o Docker Desktop (ou Docker Engine).
