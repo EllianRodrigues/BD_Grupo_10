@@ -1,0 +1,9 @@
+# Arquivos gerados pelo Docker
+/data/
+#docker-compose.override.yml
+
+# Variáveis de ambiente
+.env
+
+# Arquivos de log/temporários (se houver)
+*.log

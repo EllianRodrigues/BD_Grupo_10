@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  postgres_db:
+    image: postgres:15-alpine
+    container_name: grupo_10_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "${POSTGRES_PORT_EXTERNAL}:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  pgadmin_ui:
+    image: dpage/pgadmin4
+    container_name: grupo_10_pgadmin
+    restart: always
+    ports:
+      - "${PGADMIN_PORT_EXTERNAL}:80"
+    depends_on:
+      - postgres_db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_LISTEN_PORT: 80
+      PGADMIN_CONFIG_SERVER_GROUPS: |
+        {
+          "Servers": {
+            "1": {
+              "Name": "Meu Projeto Postgres",
+              "Group": "Servers",
+              "Port": 5432,
+              "Username": "${POSTGRES_USER}",
+              "Host": "postgres_db",
+              "SSLMode": "disable"
+            }
+          }
+        }
