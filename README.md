@@ -1,8 +1,7 @@
-**Status:** Serviços definidos em `docker-compose.yml`. O arquivo `init.sql` é executado na primeira inicialização para criar as estruturas iniciais.
+ # Bando de Dados - Grupo 10
 
 ## Pré-requisitos
 - Instalar e executar o Docker Desktop (ou Docker Engine).
-- Ter o `docker compose` disponível (Docker Compose v2 integrado ao Docker Desktop funciona bem).
 
 ## 1) Quick start — Executando o ambiente
 
@@ -41,7 +40,7 @@ docker compose up -d
 docker compose ps
 ```
 
-## 2) Serviços e portas (padrões neste repositório)
+## 2) Serviços e portas
 - pgAdmin (interface web): `http://localhost:6080` (porta externa configurada por `PGADMIN_PORT_EXTERNAL`).
 - PostgreSQL: porta externa configurada por `POSTGRES_PORT_EXTERNAL` (ex.: `localhost:64321`) que mapeia a porta interna `5432` do container.
 
