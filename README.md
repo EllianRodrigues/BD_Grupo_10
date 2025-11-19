@@ -3,7 +3,7 @@
 ## Pré-requisitos
 - Instalar e executar o Docker Desktop (ou Docker Engine).
 
-## 1) Quick start — Executando o ambiente
+## 1) Quick start
 
 1. Clone o repositório:
 
@@ -26,6 +26,17 @@ POSTGRES_PORT_EXTERNAL=64321
 PGADMIN_DEFAULT_EMAIL=pgadmin@meuprojeto.com
 PGADMIN_DEFAULT_PASSWORD=outrasenhaboa456
 PGADMIN_PORT_EXTERNAL=6080
+```
+
+**Dica:** crie o arquivo `.env` e (opcionalmente) crie um ambiente virtual Python antes de instalar as dependências. Exemplo em PowerShell:
+
+```powershell
+# cria o venv na pasta .venv
+python -m venv .venv
+# ativa o venv (PowerShell)
+.\.venv\Scripts\Activate.ps1
+# por fim, instale as dependências
+pip install -r .\requirements.txt
 ```
 
 3. Inicie os serviços:
@@ -72,4 +83,12 @@ Para remover volumes e limpar dados persistentes (CUIDADO — isto apaga o banco
 
 ```powershell
 docker compose down -v
+```
+
+## 6) Rodando as consultas (Python)
+
+O repositório inclui um script Python chamado `querry.py` que carrega automaticamente as variáveis do arquivo `.env` e executa as consultas definidas. Após garantir que o `.env` existe e as dependências estão instaladas, execute:
+
+```powershell
+python .\querry.py
 ```

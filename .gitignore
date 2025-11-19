@@ -7,3 +7,10 @@
 
 # Arquivos de log/temporários (se houver)
 *.log
+
+#pycache__/
+__pycache__/
+
+#ambiente virtual
+venv/
+.env/
