@@ -9,7 +9,7 @@
 
 ```powershell
 git clone <URL-DO-REPOSITORIO>
-cd "Banco De Dados - Grupo 10"
+cd "BD_Grupo_10"
 ```
 
 2. Crie um arquivo `.env` na raiz (o projeto carrega variáveis de ambiente a partir dele). Exemplo mínimo:
